@@ -6,7 +6,7 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)      # インスタンス(モデル)をlist_paramsの内容で作成、ローカル変数listに代入
     if @list.save                      # インスタンス変数listをデータベースに保存
-      redirect_to list_path(list.id)   # list_path(=showアクション)へリダイレクト
+      redirect_to list_path(@list.id)   # list_path(=showアクション)へリダイレクト
     else
       render :new
     end
